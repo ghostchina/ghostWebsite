@@ -127,7 +127,14 @@ function getActiveThemePaths() {
 }
 
 frontendControllers = {
-    'homepage': function (req, res, next) {
+    'homepage':function(req, res, next){
+        var data = {
+            meta_title:"Ghost 中文网",
+            meta_description:"Ghost 中文网,Ghost 教程博客"
+        }
+        res.render("index",data);
+    },
+    'blogs': function (req, res, next) {
         // Parse the page number
         var pageParam = req.params.page !== undefined ? parseInt(req.params.page, 10) : 1,
             options = {
@@ -151,12 +158,12 @@ frontendControllers = {
             // Render the page of posts
             filters.doFilter('prePostsRender', page.posts).then(function (posts) {
                 getActiveThemePaths().then(function (paths) {
-                    var view = paths.hasOwnProperty('home.hbs') ? 'home' : 'index';
+                    var view = paths.hasOwnProperty('home.hbs') ? 'home' : 'list';
 
                     // If we're on a page then we always render the index
                     // template.
                     if (pageParam > 1) {
-                        view = 'index';
+                        view = 'list';
                     }
 
                     res.render(view, formatPageResponse(posts, page));
@@ -200,7 +207,7 @@ frontendControllers = {
                         view = category;
                     }
 
-                    res.render(view, formatPageResponse(posts, page));
+                    res.render('list-'+view, formatPageResponse(posts, page));
                 });
             });
         }).otherwise(handleError(next));

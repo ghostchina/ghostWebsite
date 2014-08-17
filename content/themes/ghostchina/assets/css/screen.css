@@ -1289,18 +1289,52 @@ body:not(.post-template) .post-title {
 .site-footer a:hover {
     color: #50585D;
 }
+#page-footer {
+    padding-top: 2rem;
+    background-color: #000;
+    color: #777;
+    font-size: 1.5rem;
 
-.poweredby {
+}
+#page-footer h4 {
+    font-size: 2rem;
+    color: #ddd;
+}
+#page-footer a {
+    color: #777;
+}
+#page-footer a:hover {
+    color: #dddddd;
+}
+#page-footer section {
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+#page-footer .copyright {
+    font-size: 0.8rem;
+    line-height: 18px;
+    padding-top: 2rem;
+    text-align: center;
+}
+#page-footer #footer-content dl dd {
+    margin: 0 20px 12px 4px;
+}
+#page-footer #footer-content dl dt,
+#page-footer #footer-content dl dd {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    padding: 0;
+}
+#page-footer .ourinfo {
     display: block;
-    width: 45%;
-    float: right;
-    text-align: right;
 }
 
-.copyright {
-    display: block;
-    width: 45%;
-    float: left;
+.navbar{
+    margin-bottom: 0;
+}
+.navbar a{
+    font-size: 1.5rem;
 }
 
 

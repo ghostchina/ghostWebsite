@@ -13,29 +13,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
+    <!--[if lt IE 9]>
+	<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
 
     {{! Ghost outputs important style and meta data with this tag }}
+		{{{block "pageStyles"}}}
     {{ghost_head}}
 </head>
 <body class="{{body_class}}">
-
+		{{> menu}}
     {{! Everything else gets inserted here }}
     {{{body}}}
 
-    <footer class="site-footer clearfix">
-         <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-         <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
-    </footer>
 
-    {{! Ghost outputs important scripts and data with this tag }}
-    {{ghost_foot}}
+
+
+    {{> footer}}
 
     {{! The main JavaScript file for Casper }}
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+    {{{block "pageScript"}}}
 
 </body>
 </html>
