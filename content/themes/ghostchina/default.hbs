@@ -7,12 +7,16 @@
 
     {{! Page Meta }}
     <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ghost 是一套基于 Node.js 构建的开源博客平台（Open source blogging platform），具有易用的书写界面和体验，博客内容默认采用 Markdown 语法书写，目标是取代臃肿的 Wordpress。">
+    <meta name="keywords" content="Ghost,blog,Ghost中国,Ghost博客,Ghost中文,Ghost中文文档">
+    <meta name="author" content="Ghost中文网">
 
     <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="MobileOptimized" content="320" />
 
-    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    <link rel="apple-touch-icon-precomposed" href="{{asset "images/apple-touch-icon-precomposed.png"}}">
+    <link rel="shortcut icon" href="{{asset "images/favicon.ico"}}">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
     <!--[if lt IE 9]>
@@ -41,6 +45,9 @@
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
     {{{block "pageScript"}}}
-
+    <script type="text/javascript">
+        var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6338835ad35c6d950a554fdedb598e48' type='text/javascript'%3E%3C/script%3E"));
+    </script>
 </body>
 </html>

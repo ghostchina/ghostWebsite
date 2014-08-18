@@ -69,8 +69,23 @@
             </section>
 
         </footer>
+        <div class="ds-thread" data-thread-key="{{uuid}}" data-title="{{title}}" data-url="{{@blog.url}}/{{slug}}"></div>
 
     {{/post}}
     </article>
+    <!-- 多说评论框 start -->
 
 </main>
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ghostcn"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
