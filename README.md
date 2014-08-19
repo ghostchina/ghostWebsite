@@ -13,7 +13,7 @@ database: {
                 host     : '127.0.0.1',
                 user     : 'root',
                 password : 'root',
-                database : 'bigertech_blog',
+                database : 'ghostchina_blog',
                 charset  : 'UTF8_GENERAL_CI'
             }
         },
@@ -50,6 +50,5 @@ database: {
 
 
 ## Copyright & License
-笔戈科技出品
 
 Copyright (c) 2013-2014 Ghost Foundation - Released under the [MIT license](LICENSE).
