@@ -9,7 +9,7 @@
  Target Server Version : 50538
  File Encoding         : utf-8
 
- Date: 08/23/2014 13:34:31 PM
+ Date: 08/23/2014 14:04:30 PM
 */
 
 SET NAMES utf8;
@@ -31,13 +31,13 @@ CREATE TABLE `accesstokens` (
   KEY `accesstokens_client_id_foreign` (`client_id`),
   CONSTRAINT `accesstokens_client_id_foreign` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`),
   CONSTRAINT `accesstokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `accesstokens`
 -- ----------------------------
 BEGIN;
-INSERT INTO `accesstokens` VALUES ('3', '4XcUTHXXVHGa4zuyIFrlltMymahuRIDLk195bJp9dam7V1sFg8Ny8lmRyaB03vgWe1NKTq1Kv9cDTVOeRnz4GfhFXpclbd6XqKNBY3omqWpNXI1yyfOrni5Uuc9Y6daSFUJMgJL5x0UnDo7i8ZNDpito5w5pOIfTPnPyDnIAl67kX5rdhjg2zGvlhIpfZMkd0HAaOrz5RxQPA31qdTVb6EyvrjEavWEHwzSVZF5cnVpBiEkVKwDzGjBNYOOjXXe', '1', '1', '1408769951958');
+INSERT INTO `accesstokens` VALUES ('3', '4XcUTHXXVHGa4zuyIFrlltMymahuRIDLk195bJp9dam7V1sFg8Ny8lmRyaB03vgWe1NKTq1Kv9cDTVOeRnz4GfhFXpclbd6XqKNBY3omqWpNXI1yyfOrni5Uuc9Y6daSFUJMgJL5x0UnDo7i8ZNDpito5w5pOIfTPnPyDnIAl67kX5rdhjg2zGvlhIpfZMkd0HAaOrz5RxQPA31qdTVb6EyvrjEavWEHwzSVZF5cnVpBiEkVKwDzGjBNYOOjXXe', '1', '1', '1408769951958'), ('4', 'BkJXA67LdMiKyxJXrs9TVdsa9x4SPdBxSrC7iux5AuOSf6dwWqMxT2c4OfzL5xFDA3m2pUpPzFiEQEiWE5NzIYVBuTZMSy3Vgy5vEqQZSMKMA24gMDirJrMy8kQtgGU5iEykLf04BcvQsK37ejL6KTLEoKr7IbkNKDkK77kxbaVefYmLrKWth8qTSZnKVoSTfU6BDp503Z0N5n8UX6hxUTxexDUVLkNgKvwioOWDxxpqFVOmE3BJx2uIgz1V9vy', '1', '1', '1408775978828');
 COMMIT;
 
 -- ----------------------------
@@ -214,7 +214,7 @@ CREATE TABLE `post_type` (
 --  Records of `post_type`
 -- ----------------------------
 BEGIN;
-INSERT INTO `post_type` VALUES ('0', null, '博客', 'article', null), ('1', null, '教程', 'course', null);
+INSERT INTO `post_type` VALUES ('0', null, '博客', 'article', null), ('1', null, '教程', 'course', null), ('2', null, '优秀站点', 'site', null);
 COMMIT;
 
 -- ----------------------------
@@ -298,7 +298,7 @@ CREATE TABLE `refreshtokens` (
 --  Records of `refreshtokens`
 -- ----------------------------
 BEGIN;
-INSERT INTO `refreshtokens` VALUES ('4', 'ywmt39Zmd9f8CLxxdWY984KRXcVU0ox5UMcSlPEy9GuEtmGyvPzTPTyig8enVvHFyowVp9zhchiz3rAyAZE5GkSPAmP1A9M3E2g0fZfcDnvieX139oi8RKWnaFzGR4HUZhK8ayHXJJ9SHuXAWMLwUvTGhWiyRPfihQlzLxchYyKGoMOfh8mXhrVcu4SRZEtcCzGJfxDm5U5GON1qZ5qmwBw2DFjDLWa5KHfaUrcuNQleEYa7iYRTzO40gcCOWL6', '1', '1', '1408852751958');
+INSERT INTO `refreshtokens` VALUES ('4', 'ywmt39Zmd9f8CLxxdWY984KRXcVU0ox5UMcSlPEy9GuEtmGyvPzTPTyig8enVvHFyowVp9zhchiz3rAyAZE5GkSPAmP1A9M3E2g0fZfcDnvieX139oi8RKWnaFzGR4HUZhK8ayHXJJ9SHuXAWMLwUvTGhWiyRPfihQlzLxchYyKGoMOfh8mXhrVcu4SRZEtcCzGJfxDm5U5GON1qZ5qmwBw2DFjDLWa5KHfaUrcuNQleEYa7iYRTzO40gcCOWL6', '1', '1', '1408858778828');
 COMMIT;
 
 -- ----------------------------
