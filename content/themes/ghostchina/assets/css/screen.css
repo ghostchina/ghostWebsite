@@ -1370,6 +1370,10 @@ body:not(.post-template) .post-title {
 .navbar-inverse .navbar-nav>li>a{
     color: #ccc;
 }
+.responsive-img{
+    width: 100%;
+
+}
 
 /* ==========================================================================
    10. Media Queries - Smaller than 1600px
