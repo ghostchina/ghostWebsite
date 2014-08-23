@@ -1,5 +1,4 @@
 var db = {
-
         posts: {
             id: {type: 'increments', nullable: false, primary: true},
             uuid: {type: 'string', maxlength: 36, nullable: false, validations: {'isUUID': true}},

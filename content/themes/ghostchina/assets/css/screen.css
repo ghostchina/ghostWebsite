@@ -237,7 +237,6 @@ h6 {
 }
 
 a {
-    color: #4A4A4A;
     transition: color ease 0.3s;
 }
 
@@ -1368,7 +1367,9 @@ body:not(.post-template) .post-title {
 .ds-thread{
     margin-top: 100px;
 }
-
+.navbar-inverse .navbar-nav>li>a{
+    color: #ccc;
+}
 
 /* ==========================================================================
    10. Media Queries - Smaller than 1600px

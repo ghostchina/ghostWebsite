@@ -41,6 +41,19 @@ config = {
         },
         paths: {
             contentPath: path.join(__dirname, '/content/')
+        },
+        cdn: {
+            isProduction: false,
+            staticAssetsUrl: 'http://cdn.example.com/assets/',
+            dynamicAssetsUrl: 'http://cdn.example.com/assets/images/',
+            syncImagesPath: '/data/static/images/'
+        },
+        images: {
+            // 如果下面几项留空，则说明上传的图片无需截图
+            dir: 'dirname',
+            targetWidth: 180,
+            // 目标宽度：目标长度的比例
+            scale: 0.5
         }
     },
 

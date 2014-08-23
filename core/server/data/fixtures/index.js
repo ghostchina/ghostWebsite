@@ -92,9 +92,9 @@ populate = function () {
     _.each(fixtures.clients, function (client) {
         ops.push(Client.add(client, options));
     });
-//    _.each(fixtures.post_types,function(type){
-//        ops.push(PostType.add(type,options));
-//    });
+    _.each(fixtures.post_types,function(type){
+        ops.push(PostType.add(type,options));
+    });
 
     // add the tag to the post
     relations.push(function () {

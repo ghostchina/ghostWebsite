@@ -9,6 +9,7 @@ var moment      = require('moment'),
     _           = require('lodash'),
     url         = require('url'),
     when        = require('when'),
+    cheerio     = require('cheerio'),
 
     api         = require('../api'),
     config      = require('../config'),
@@ -25,7 +26,7 @@ var moment      = require('moment'),
 api.postType.browse().then(function(result){
     if(result.postTypes){
         _.forEach(result.postTypes,function(item){
-            typeLinks[item.id] = item.slug;
+            typeLinks.push(item.slug);
         });
     }
 });
@@ -127,7 +128,7 @@ function getActiveThemePaths() {
 }
 
 frontendControllers = {
-    'homepage':function(req, res, next){
+    'homepage': function(req,res,next){
         var data = {
             meta_title:"Ghost 中文网",
             meta_description:"Ghost 中文网,Ghost 教程博客"
@@ -186,14 +187,11 @@ frontendControllers = {
         if (isNaN(pageParam) || pageParam < 1 || (pageParam === 1 && req.route.path === '/page/:page/')) {
             return res.redirect(config.paths.subdir + '/');
         }
-
         return getPostPage(options).then(function (page) {
-
             // If page is greater than number of pages we have, redirect to last page
             if (pageParam > page.meta.pagination.pages) {
                 return res.redirect(page.meta.pagination.pages === 1 ? config.paths.subdir + '/' : (config.paths.subdir + '/page/' + page.meta.pagination.pages + '/'));
             }
-
             setReqCtx(req, page.posts);
 
             // Render the page of posts
@@ -460,6 +458,23 @@ frontendControllers = {
             return req.route.path.indexOf('/author/') !== -1;
         }
 
+        // --- Modified by happen
+        function getCdnImageUrl(image) {
+            var pos = image.indexOf('images/');
+            if (pos !== -1) {
+                var imgPath = image.substr(pos + 'images/'.length);
+                image = config.cdn.dynamicAssetsUrl;
+                if (config.cdn.dynamicAssetsUrl && config.cdn.dynamicAssetsUrl.substr(-1) !== '/') {
+                    image += '/';
+                }
+
+                image += imgPath;
+            }
+
+            return image;
+        }
+        // --- end
+
         // Initialize RSS
         var pageParam = req.params.page !== undefined ? parseInt(req.params.page, 10) : 1,
             slugParam = req.params.slug,
@@ -562,6 +577,23 @@ frontendControllers = {
                             return "href=\"" + p1 + "\" ";
                         });
                         item.description = content;
+
+
+                        // --- Modified by happen
+                        if (config.cdn.isProduction) {
+                            var $ = cheerio.load(item.description);
+
+                            $('img').each(function(index, elem) {
+                                var src = $(this).attr('src');
+                                if (src.indexOf(config.paths.contentPath)) {
+                                    $(this).attr('src', getCdnImageUrl(src));
+                                }
+                            });
+
+                            item.description = $.html();
+                        }
+                        // --- end
+
                         feed.item(item);
                         feedItems.push(deferred.promise);
                         deferred.resolve();

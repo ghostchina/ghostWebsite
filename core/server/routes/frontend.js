@@ -32,10 +32,10 @@ frontendRoutes = function () {
 
     // Default
     router.get('/page/:page/', frontend.homepage);
-    router.get('/blogs', frontend.blogs);
     router.get('/', frontend.homepage);
+    router.get('/blogs', frontend.blogs);
     router.get('/category/:category', frontend.category);
-    router.get('/category/:category/:page', frontend.category);
+    router.get('/category/:category/page/:page', frontend.category);
     router.get('*', frontend.single);
 
     return router;
