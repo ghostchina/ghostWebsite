@@ -1,0 +1,24 @@
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{@blog.url}}">{{@blog.title}}</a>
+					{{#if @blog.logo}}<a class="blog-logo" href=""><img src="{{@blog.logo}}" alt="Ghost 中文网" /></a>{{/if}}
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">主 页</a></li>
+                <li><a href="http://docs.ghost.org/zh/installation/" target="_blank">文 档</a></li>
+                <li><a href="/download">下 载</a></li>
+                <li><a href="/blogs">博 客</a></li>
+                <li><a href="http://marketplace.ghost.org/" target="_blank">主 题</a></li>
+                <li><a href="/bbs">社 区</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
